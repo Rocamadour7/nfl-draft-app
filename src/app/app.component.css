@@ -1,0 +1,53 @@
+md-sidenav {
+  background-color: rgba(0, 0, 0, 0.80) !important;
+  width: 320px;
+}
+
+* {
+    outline-color: transparent;
+}
+
+md-sidenav img {
+    width: 320px;
+    height: auto;
+}
+
+md-sidenav ul {
+    list-style: none;
+    padding: 0;
+}
+
+md-sidenav ul li {
+    height: 60px;
+    color: white;
+    margin: 0;
+    padding-left: 90px;
+    cursor: pointer;
+}
+
+md-sidenav ul li span {
+  display: inline-block;
+  vertical-align: -webkit-baseline-middle;
+}
+
+md-sidenav ul li, md-icon {
+    font-size: 28px;
+    font-weight: 400;
+}
+
+md-sidenav md-icon {
+    height: 28px;
+    width: 28px;
+}
+
+md-sidenav .active {
+    background-color: black !important;
+    color: dodgerblue !important;
+}
+
+.ng-title-icon > i {
+  background-image: url("../assets/ng.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  padding: 1em 2em;
+}
