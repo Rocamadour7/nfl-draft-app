@@ -13,6 +13,9 @@ import { TeamsComponent } from './teams/teams.component';
 import { RoundsComponent } from './rounds/rounds.component';
 import { AboutComponent } from './about/about.component';
 
+import { ApiConnService } from './shared/api-conn.service';
+import { PlayerService } from './players/player.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +32,7 @@ import { AboutComponent } from './about/about.component';
     MaterialModule,
     nflRoutingModule
   ],
-  providers: [],
+  providers: [ApiConnService, PlayerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
