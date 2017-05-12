@@ -6,6 +6,7 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { MaterialModule } from "@angular/material";
 import "hammerjs";
 import { nflRoutingModule } from './app-routing.module';
+import { Ng2OrderModule } from "ng2-order-pipe";
 
 import { AppComponent } from './app.component';
 import { PlayersComponent } from './players/players.component';
@@ -30,7 +31,8 @@ import { PlayerService } from './players/player.service';
     HttpModule,
     BrowserAnimationsModule,
     MaterialModule,
-    nflRoutingModule
+    nflRoutingModule,
+    Ng2OrderModule
   ],
   providers: [ApiConnService, PlayerService],
   bootstrap: [AppComponent]
