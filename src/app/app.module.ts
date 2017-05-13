@@ -16,7 +16,11 @@ import { AboutComponent } from './about/about.component';
 
 import { ApiConnService } from './shared/api-conn.service';
 import { PlayerService } from './players/player.service';
+import { TeamService } from './teams/team.service';
+
 import { FilterPipe } from './shared/filter.pipe';
+import { FilterTeamsPipe } from './shared/filter-teams.pipe';
+import { FilterRoundsPipe } from './shared/filter-rounds.pipe';
 
 @NgModule({
   declarations: [
@@ -26,6 +30,8 @@ import { FilterPipe } from './shared/filter.pipe';
     RoundsComponent,
     AboutComponent,
     FilterPipe,
+    FilterTeamsPipe,
+    FilterRoundsPipe,
   ],
   imports: [
     BrowserModule,
@@ -36,7 +42,7 @@ import { FilterPipe } from './shared/filter.pipe';
     nflRoutingModule,
     Ng2OrderModule
   ],
-  providers: [ApiConnService, PlayerService],
+  providers: [ApiConnService, PlayerService, TeamService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

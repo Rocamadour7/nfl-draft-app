@@ -1,3 +1,21 @@
-<p>
-  teams works!
-</p>
+<md-card>
+  <md-card-title>
+    <md-select placeholder="Teams" [(ngModel)]="selectedTeam">
+      <md-option *ngFor="let team of teams | async" [value]="team.id">{{ team.name }}</md-option>
+    </md-select>
+  </md-card-title>
+  <md-card-content>
+    <md-nav-list>
+      <md-list-item>
+        <span class="col-1"><strong>Name</strong></span>
+        <span class="col-2"><strong>Pos</strong></span>
+        <span class="col-3"><strong>College</strong></span>
+      </md-list-item>
+      <a md-list-item *ngFor="let player of players | async | orderBy:'id' | filterTeams:selectedTeam ">
+        <span class="col-1">{{ player.lastName }}, {{ player.firstName }}</span>
+        <span class="col-2">{{ player.position.name }}</span>
+        <span class="col-3">{{ player.college.name }}</span>
+      </a>
+    </md-nav-list>
+  </md-card-content>
+</md-card>

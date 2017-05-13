@@ -11,8 +11,5 @@ export class AppComponent implements OnInit {
   constructor(private apiConnService: ApiConnService) { }
 
   ngOnInit() {
-    this.apiConnService.getPlayers();
-    this.apiConnService.getColleges();
-    this.apiConnService.getPositions();
   }
 }

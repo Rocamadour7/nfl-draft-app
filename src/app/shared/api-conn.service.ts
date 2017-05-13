@@ -1,42 +1,31 @@
 import { Injectable } from '@angular/core';
 import { Http, Response } from "@angular/http";
+import 'rxjs/add/operator/toPromise';
 
 import { PlayerService } from './../players/player.service';
+import { TeamService } from './../teams/team.service';
+import { Player } from "../players/player.model";
 
 @Injectable()
 export class ApiConnService {
   serverHost: string = 'http://localhost:8000/';
 
-  constructor(private http: Http, private playerService: PlayerService) { }
+  constructor(private http: Http, private playerService: PlayerService, private teamService: TeamService) { }
 
-  getPlayers() {
-    this.http.get(this.serverHost + '/api/players')
-      .map((response: Response) => {
-        const players = response.json().players;
-        return players;
-      }).subscribe((players) => {
-        this.playerService.setPlayers(players);
-      });
+  getPlayers(): Promise<Player[]> {
+    return this.http.get(this.serverHost + 'api/players').toPromise().then((res: Response) => res.json().players);
   }
 
-  getColleges() {
-    this.http.get(this.serverHost + '/api/colleges')
-      .map((response: Response) => {
-        const colleges = response.json().colleges;
-        return colleges;
-      }).subscribe((colleges) => {
-        this.playerService.setColleges(colleges);
-      });
+  getColleges(): Promise<any[]> {
+    return this.http.get(this.serverHost + 'api/colleges').toPromise().then((res: Response) => res.json().colleges);
   }
 
-  getPositions() {
-    this.http.get(this.serverHost + '/api/positions')
-      .map((response: Response) => {
-        const positions = response.json().positions;
-        return positions;
-      }).subscribe((positions) => {
-        this.playerService.setPositions(positions);
-      });
+  getPositions(): Promise<any[]> {
+    return this.http.get(this.serverHost + 'api/positions').toPromise().then((res: Response) => res.json().positions);
+  }
+
+  getTeams(): Promise<any[]> {
+    return this.http.get(this.serverHost + 'api/teams').toPromise().then((res: Response) => res.json().teams);
   }
 
 }

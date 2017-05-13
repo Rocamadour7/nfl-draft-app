@@ -8,11 +8,11 @@
             <span class="col-2"><strong>Pos</strong></span>
             <span class="col-3"><strong>College</strong></span>
           </md-list-item>
-          <a md-list-item *ngFor="let player of players | orderBy:'lastName' ">
-          <span class="col-1">{{ player.lastName }}, {{ player.firstName }}</span>
-          <span class="col-2">{{ player.position.name }}</span>
-          <span class="col-3">{{ player.college.name }}</span>
-        </a>
+          <a md-list-item *ngFor="let player of players | async | orderBy:'lastName' ">
+            <span class="col-1">{{ player.lastName }}, {{ player.firstName }}</span>
+            <span class="col-2">{{ player.position.name }}</span>
+            <span class="col-3">{{ player.college.name }}</span>
+          </a>
         </md-nav-list>
       </md-card-content>
     </md-card>
@@ -22,7 +22,7 @@
     <md-card>
       <md-card-title>
         <md-select placeholder="Position" [(ngModel)]="selectedPosition">
-          <md-option *ngFor="let position of positions" [value]="position.id">{{ position.name }}</md-option>
+          <md-option *ngFor="let position of positions | async" [value]="position.id">{{ position.name }}</md-option>
         </md-select>
       </md-card-title>
       <md-card-content>
@@ -32,11 +32,11 @@
             <span class="col-2"><strong>Pos</strong></span>
             <span class="col-3"><strong>College</strong></span>
           </md-list-item>
-          <a md-list-item *ngFor="let player of players | orderBy:'lastName' | filter:'position_id':selectedPosition">
-          <span class="col-1">{{ player.lastName }}, {{ player.firstName }}</span>
-          <span class="col-2">{{ player.position.name }}</span>
-          <span class="col-3">{{ player.college.name }}</span>
-        </a>
+          <a md-list-item *ngFor="let player of players | async  | filterTeams:'teams':'id':selectedPosition">
+            <span class="col-1">{{ player.lastName }}, {{ player.firstName }}</span>
+            <span class="col-2">{{ player.position.name }}</span>
+            <span class="col-3">{{ player.college.name }}</span>
+          </a>
         </md-nav-list>
       </md-card-content>
     </md-card>
@@ -46,7 +46,7 @@
     <md-card>
       <md-card-title>
         <md-select placeholder="College" [(ngModel)]="selectedCollege">
-          <md-option *ngFor="let college of colleges" [value]="college.id">{{ college.name }}</md-option>
+          <md-option *ngFor="let college of colleges | async" [value]="college.id">{{ college.name }}</md-option>
         </md-select>
       </md-card-title>
       <md-card-content>
@@ -56,11 +56,11 @@
             <span class="col-2"><strong>Pos</strong></span>
             <span class="col-3"><strong>College</strong></span>
           </md-list-item>
-          <a md-list-item *ngFor="let player of players | orderBy:'lastName' | filter:'college_id':selectedCollege">
-          <span class="col-1">{{ player.lastName }}, {{ player.firstName }}</span>
-          <span class="col-2">{{ player.position.name }}</span>
-          <span class="col-3">{{ player.college.name }}</span>
-        </a>
+          <a md-list-item *ngFor="let player of players | async | orderBy:'lastName' | filter:'college_id':selectedCollege">
+            <span class="col-1">{{ player.lastName }}, {{ player.firstName }}</span>
+            <span class="col-2">{{ player.position.name }}</span>
+            <span class="col-3">{{ player.college.name }}</span>
+          </a>
         </md-nav-list>
       </md-card-content>
     </md-card>
