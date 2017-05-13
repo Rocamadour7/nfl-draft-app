@@ -19,4 +19,24 @@ export class ApiConnService {
       });
   }
 
+  getColleges() {
+    this.http.get(this.serverHost + '/api/colleges')
+      .map((response: Response) => {
+        const colleges = response.json().colleges;
+        return colleges;
+      }).subscribe((colleges) => {
+        this.playerService.setColleges(colleges);
+      });
+  }
+
+  getPositions() {
+    this.http.get(this.serverHost + '/api/positions')
+      .map((response: Response) => {
+        const positions = response.json().positions;
+        return positions;
+      }).subscribe((positions) => {
+        this.playerService.setPositions(positions);
+      });
+  }
+
 }

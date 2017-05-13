@@ -16,6 +16,7 @@ import { AboutComponent } from './about/about.component';
 
 import { ApiConnService } from './shared/api-conn.service';
 import { PlayerService } from './players/player.service';
+import { FilterPipe } from './shared/filter.pipe';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { PlayerService } from './players/player.service';
     TeamsComponent,
     RoundsComponent,
     AboutComponent,
+    FilterPipe,
   ],
   imports: [
     BrowserModule,

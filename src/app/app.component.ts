@@ -12,5 +12,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.apiConnService.getPlayers();
+    this.apiConnService.getColleges();
+    this.apiConnService.getPositions();
   }
 }
