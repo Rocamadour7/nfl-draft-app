@@ -15,8 +15,6 @@ import { RoundsComponent } from './rounds/rounds.component';
 import { AboutComponent } from './about/about.component';
 
 import { ApiConnService } from './shared/api-conn.service';
-import { PlayerService } from './players/player.service';
-import { TeamService } from './teams/team.service';
 
 import { FilterPipe } from './shared/filter.pipe';
 import { FilterTeamsPipe } from './shared/filter-teams.pipe';
@@ -42,7 +40,7 @@ import { FilterRoundsPipe } from './shared/filter-rounds.pipe';
     nflRoutingModule,
     Ng2OrderModule
   ],
-  providers: [ApiConnService, PlayerService, TeamService],
+  providers: [ApiConnService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

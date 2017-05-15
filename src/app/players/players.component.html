@@ -4,14 +4,22 @@
       <md-card-content>
         <md-nav-list>
           <md-list-item>
-            <span class="col-1"><strong>Name</strong></span>
+            <span class="col-1"><strong>Player</strong></span>
             <span class="col-2"><strong>Pos</strong></span>
-            <span class="col-3"><strong>College</strong></span>
+            <span class="col-3"><strong>HT</strong></span>
+            <span class="col-4"><strong>WT</strong></span>
+            <span class="col-5"><strong>College</strong></span>
+            <span class="col-6"><strong>Pick</strong></span>
+            <span class="col-7"><strong>Team</strong></span>
           </md-list-item>
           <a md-list-item *ngFor="let player of players | async | orderBy:'lastName' ">
             <span class="col-1">{{ player.lastName }}, {{ player.firstName }}</span>
             <span class="col-2">{{ player.position.name }}</span>
-            <span class="col-3">{{ player.college.name }}</span>
+            <span class="col-3">{{ player.height }}</span>
+            <span class="col-4">{{ player.weight }}</span>
+            <span class="col-5">{{ player.college.name }}</span>
+            <span class="col-6">Pick {{ player.teams[0].pivot.draftRound }}, Round {{ player.teams[0].pivot.round }} ({{ player.teams[0].pivot.draftOverall }})</span>
+            <span class="col-7">{{ player.teams[0].name }}</span>
           </a>
         </md-nav-list>
       </md-card-content>

@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 
 import { ApiConnService } from './../shared/api-conn.service';
-import { PlayerService } from './player.service';
 import { Player } from "./player.model";
+import { College } from './../shared/college.model';
+import { Position } from './../shared/position.model';
 
 @Component({
   selector: 'nfl-players',
@@ -12,12 +13,12 @@ import { Player } from "./player.model";
 })
 export class PlayersComponent implements OnInit {
   players: Promise<Player[]>;
-  colleges: Promise<any[]>;
-  positions: Promise<any[]>;
+  colleges: Promise<College[]>;
+  positions: Promise<Position[]>;
   selectedPosition = '';
   selectedCollege = '';
 
-  constructor(private apiConnService: ApiConnService, private playerService: PlayerService) { }
+  constructor(private apiConnService: ApiConnService) { }
 
   ngOnInit() {
     this.players = this.apiConnService.getPlayers();

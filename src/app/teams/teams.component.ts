@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
 import { ApiConnService } from './../shared/api-conn.service';
-import { PlayerService } from './../players/player.service';
-import { TeamService } from './team.service';
 
 import { Player } from './../players/player.model';
 import { Team } from './team.model';
@@ -17,7 +15,7 @@ export class TeamsComponent implements OnInit {
   teams: Promise<Team[]>;
   selectedTeam = '';
 
-  constructor(private apiConnService: ApiConnService, private playerService: PlayerService, private teamService: TeamService) { }
+  constructor(private apiConnService: ApiConnService) { }
 
   ngOnInit() {
     this.teams = this.apiConnService.getTeams();
