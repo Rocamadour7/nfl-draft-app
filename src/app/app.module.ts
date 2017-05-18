@@ -19,6 +19,7 @@ import { ApiConnService } from './shared/api-conn.service';
 import { FilterPipe } from './shared/filter.pipe';
 import { FilterTeamsPipe } from './shared/filter-teams.pipe';
 import { FilterRoundsPipe } from './shared/filter-rounds.pipe';
+import { LoadingComponent } from './ui/loading/loading.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { FilterRoundsPipe } from './shared/filter-rounds.pipe';
     FilterPipe,
     FilterTeamsPipe,
     FilterRoundsPipe,
+    LoadingComponent,
   ],
   imports: [
     BrowserModule,

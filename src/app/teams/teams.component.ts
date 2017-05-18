@@ -14,12 +14,14 @@ export class TeamsComponent implements OnInit {
   players: Promise<Player[]>;
   teams: Promise<Team[]>;
   selectedTeam = '';
+  showLoading: boolean = true;
 
   constructor(private apiConnService: ApiConnService) { }
 
   ngOnInit() {
     this.teams = this.apiConnService.getTeams();
     this.players = this.apiConnService.getPlayers();
+    this.players.then(() => this.showLoading = false);
   }
 
 }

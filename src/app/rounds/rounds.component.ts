@@ -12,11 +12,13 @@ import { Player } from './../players/player.model';
 export class RoundsComponent implements OnInit {
   selectedRound = 0;
   players: Promise<Player[]>;
+  showLoading: boolean = true;
 
   constructor(private apiConnService: ApiConnService) { }
 
   ngOnInit() {
     this.players = this.apiConnService.getPlayers();
+    this.players.then(() => this.showLoading = false);
   }
 
 }
