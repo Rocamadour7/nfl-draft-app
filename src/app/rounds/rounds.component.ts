@@ -10,7 +10,7 @@ import { Player } from './../players/player.model';
   styleUrls: ['./rounds.component.css']
 })
 export class RoundsComponent implements OnInit {
-  selectedRound = 0;
+  selectedRound = 1;
   players: Promise<Player[]>;
   showLoading: boolean = true;
 

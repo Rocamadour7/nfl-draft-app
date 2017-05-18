@@ -14,19 +14,43 @@ export class ApiConnService {
   constructor(private http: Http) { }
 
   getPlayers(): Promise<Player[]> {
-    return this.http.get(this.serverHost + 'api/players').toPromise().then((res: Response) => res.json().players);
+    return this.http.get(this.serverHost + 'api/players')
+               .toPromise()
+               .then((res: Response) => res.json().players)
+               .catch(this.handleError);
   }
 
   getColleges(): Promise<College[]> {
-    return this.http.get(this.serverHost + 'api/colleges').toPromise().then((res: Response) => res.json().colleges);
+    return this.http.get(this.serverHost + 'api/colleges')
+               .toPromise()
+               .then((res: Response) => res.json().colleges)
+               .catch(this.handleError);
   }
 
   getPositions(): Promise<Position[]> {
-    return this.http.get(this.serverHost + 'api/positions').toPromise().then((res: Response) => res.json().positions);
+    return this.http.get(this.serverHost + 'api/positions')
+               .toPromise()
+               .then((res: Response) => res.json().positions)
+               .catch(this.handleError);
   }
 
   getTeams(): Promise<Team[]> {
-    return this.http.get(this.serverHost + 'api/teams').toPromise().then((res: Response) => res.json().teams);
+    return this.http.get(this.serverHost + 'api/teams')
+               .toPromise()
+               .then((res: Response) => res.json().teams)
+               .catch(this.handleError);
+  }
+
+  getPlayer(id: number): Promise<Player> {
+    return this.http.get(this.serverHost + 'api/player/' + id)
+               .toPromise()
+               .then((res: Response) => res.json().player)
+               .catch(this.handleError);
+  }
+
+  private handleError(error: any): Promise<any> {
+    console.error('An error ocurred', error);
+    return Promise.reject(error.message || error);
   }
 
 }

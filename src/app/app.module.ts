@@ -20,6 +20,7 @@ import { FilterPipe } from './shared/filter.pipe';
 import { FilterTeamsPipe } from './shared/filter-teams.pipe';
 import { FilterRoundsPipe } from './shared/filter-rounds.pipe';
 import { LoadingComponent } from './ui/loading/loading.component';
+import { PlayerDetailsComponent } from './player-details/player-details.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { LoadingComponent } from './ui/loading/loading.component';
     FilterTeamsPipe,
     FilterRoundsPipe,
     LoadingComponent,
+    PlayerDetailsComponent,
   ],
   imports: [
     BrowserModule,

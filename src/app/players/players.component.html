@@ -12,7 +12,7 @@
             <span class="col-6"><strong>Pick</strong></span>
             <span class="col-7"><strong>Team</strong></span>
           </md-list-item>
-          <a md-list-item *ngFor="let player of players | async | orderBy:'lastName' ">
+          <a md-list-item *ngFor="let player of players | async | orderBy:'lastName'; let i = index " [routerLink]="['/player', player.id]">
             <span class="col-1">{{ player.lastName }}, {{ player.firstName }}</span>
             <span class="col-2">{{ player.position.name }}</span>
             <span class="col-3">{{ player.height }}</span>
@@ -45,7 +45,7 @@
             <span class="col-6"><strong>Pick</strong></span>
             <span class="col-7"><strong>Team</strong></span>
           </md-list-item>
-          <a md-list-item *ngFor="let player of players | async  | filter:'position_id':selectedPosition">
+          <a md-list-item *ngFor="let player of players | async  | filter:'position_id':selectedPosition " [routerLink]="['/player', player.id]">
             <span class="col-1">{{ player.lastName }}, {{ player.firstName }}</span>
             <span class="col-2">{{ player.position.name }}</span>
             <span class="col-3">{{ player.height }}</span>
@@ -78,7 +78,7 @@
             <span class="col-6"><strong>Pick</strong></span>
             <span class="col-7"><strong>Team</strong></span>
           </md-list-item>
-          <a md-list-item *ngFor="let player of players | async | orderBy:'lastName' | filter:'college_id':selectedCollege">
+          <a md-list-item *ngFor="let player of players | async | orderBy:'lastName' | filter:'college_id':selectedCollege" [routerLink]="['/player', player.id]">
             <span class="col-1">{{ player.lastName }}, {{ player.firstName }}</span>
             <span class="col-2">{{ player.position.name }}</span>
             <span class="col-3">{{ player.height }}</span>

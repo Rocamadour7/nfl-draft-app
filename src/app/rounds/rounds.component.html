@@ -19,7 +19,7 @@
         <span class="col-6"><strong>WT</strong></span>
         <span class="col-7"><strong>College</strong></span>
       </md-list-item>
-      <a md-list-item *ngFor="let player of players | async | orderBy:'id' | filterRounds:selectedRound ">
+      <a md-list-item *ngFor="let player of players | async | orderBy:'id' | filterRounds:selectedRound " [routerLink]="['/player', player.id]">
         <span class="col-1 big-pick">{{ player.teams[0].pivot.draftRound }} <span class="small-pick">({{ player.teams[0].pivot.draftOverall }})</span></span>
         <span class="col-2">{{ player.teams[0].name }}</span>
         <span class="col-3">{{ player.lastName }}, {{ player.firstName }}</span>
