@@ -1,14 +1,44 @@
+<button md-raised-button (click)="goBack()" color="accent"><md-icon>arrow_back</md-icon> Back</button>
 <md-card>
-  <md-card-actions><button md-button (click)="goBack()"><md-icon>arrow_back</md-icon> Back</button></md-card-actions>
   <md-card-header>
-    <md-card-title>Player name</md-card-title>
-    <md-card-subtitle>Player college & conference</md-card-subtitle>
+    <md-card-title>{{ (player | async)?.firstName }} {{ (player | async)?.lastName }}</md-card-title>
+    <md-card-subtitle><span class="college">{{ (player | async)?.college.name }}</span> <span class="conference">{{ (player | async)?.college.conference.name }}</span></md-card-subtitle>
   </md-card-header>
-  <img md-card-image-sm src="http://localhost:8000/storage/avatars/default.jpg" alt="Player name">
+  <img md-card-image-sm [src]="apiURL + (player | async)?.imgPath" [alt]="(player | async)?.firstName + ' ' + (player | async)?.lastName">
   <md-card-content>
-    <p>Player test 1</p>
-    <p>Player test 2</p>
-    <p>Player test 3</p>
-    <p>Player test 4</p>
+    <md-list>
+      <md-list-item>
+        <span class="col-1">Position:</span>
+        <span class="col-2">{{ (player | async)?.position.name }}</span>
+      </md-list-item>
+      <md-list-item>
+        <span class="col-1">Team:</span>
+        <span class="col-2">{{ (player | async)?.teams[0].name }}</span>
+      </md-list-item>
+      <md-list-item>
+        <span class="col-1">Height:</span>
+        <span class="col-2">{{ (player | async)?.height }}"</span>
+      </md-list-item>
+      <md-list-item>
+        <span class="col-1">Weight:</span>
+        <span class="col-2">{{ (player | async)?.weight }} lb.</span>
+      </md-list-item>
+      <md-list-item *ngIf="(player | async)?.armLength != 0">
+        <span class="col-1">Arms Length:</span>
+        <span class="col-2">{{ (player | async)?.armLength }}"</span>
+      </md-list-item>
+      <md-list-item *ngIf="(player | async)?.hands != 0">
+        <span class="col-1">Hands:</span>
+        <span class="col-2">{{ (player | async)?.hands }}"</span>
+      </md-list-item>
+    </md-list>
+    <hr>
+    <md-list>
+      <md-list-item *ngFor="let test of (player | async)?.tests">
+        <span class="col-1">{{ test.name }}</span>
+        <span class="col-2">{{test.pivot.result}}</span>
+      </md-list-item>
+    </md-list>
   </md-card-content>
+  <nfl-loading *ngIf="showLoading"></nfl-loading>
 </md-card>

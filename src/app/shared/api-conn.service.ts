@@ -9,7 +9,7 @@ import { Team } from './../teams/team.model';
 
 @Injectable()
 export class ApiConnService {
-  serverHost: string = 'http://localhost:8000/';
+  serverHost: string = 'http://104.238.146.77/';
 
   constructor(private http: Http) { }
 

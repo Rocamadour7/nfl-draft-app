@@ -1,5 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { ActivatedRoute, Params } from "@angular/router";
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from "@angular/router";
 import { Location } from "@angular/common";
 
 import { ApiConnService } from './../shared/api-conn.service';
@@ -12,18 +12,21 @@ import { Player } from './../players/player.model';
   styleUrls: ['./player-details.component.css']
 })
 export class PlayerDetailsComponent implements OnInit {
-  player: Promise<Player>;
+  apiURL: string;
   id: number;
+  player: Promise<Player>;
   showLoading: boolean = true;
 
   constructor(private apiConnService: ApiConnService, private route: ActivatedRoute, private location: Location) { }
 
   ngOnInit() {
-    this.route.params.subscribe((params: Params) => {
-      this.id = +params['id'];
-      this.player = this.apiConnService.getPlayer(this.id);
+    this.apiURL = this.apiConnService.serverHost;
+    this.id = +this.route.snapshot.params['id'];
+    this.player = this.apiConnService.getPlayer(this.id);
+    this.player.then((player) => {
+      this.showLoading = false;
+      console.log(this.player);
     });
-    this.player.then(() => this.showLoading = false);
   }
 
   goBack() {
