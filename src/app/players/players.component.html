@@ -63,7 +63,7 @@
   <md-tab label="College">
     <md-card>
       <md-card-title>
-        <md-select placeholder="College" [(ngModel)]="selectedCollege">
+        <md-select class="colleges" placeholder="College" [(ngModel)]="selectedCollege">
           <md-option *ngFor="let college of colleges | async" [value]="college.id">{{ college.name }}</md-option>
         </md-select>
       </md-card-title>
