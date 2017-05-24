@@ -7,6 +7,11 @@ button {
     margin-left: 400px;
 }
 
+.college {
+    color: rgb(103, 58, 183);
+    font-weight: 600;
+}
+
 .col-1 {
     width: 50%;
 }
@@ -24,4 +29,11 @@ md-chip-list {
 .big-number {
     font-size: 32px;
     font-weight: 500;
+}
+
+.helmet {
+    height: 75px;
+    position: absolute;
+    top: 10px;
+    right: 350px;
 }
