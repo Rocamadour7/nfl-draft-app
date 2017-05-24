@@ -1,3 +1,3 @@
 export class College {
-    constructor(private id: number, private name: string, private conference_id: number) { }
+    constructor(public id: number, public name: string, public conference_id: number) { }
 }
