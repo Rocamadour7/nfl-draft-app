@@ -29,6 +29,7 @@ md-sidenav ul li {
 md-sidenav ul li span {
   display: inline-block;
   vertical-align: -webkit-baseline-middle;
+  padding-top: 10px;
 }
 
 md-sidenav ul li, md-icon {
@@ -43,7 +44,7 @@ md-sidenav md-icon {
 
 md-sidenav .active {
     background-color: black !important;
-    color: dodgerblue !important;
+    color: rgb(103, 58, 183) !important;
 }
 
 .ng-title-icon > i {

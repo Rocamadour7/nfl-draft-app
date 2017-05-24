@@ -1,4 +1,27 @@
+md-card {
+    margin: 20px 400px;
+}
+
 button {
     margin-top: 20px;
-    margin-left: 20px;
+    margin-left: 400px;
+}
+
+.col-1 {
+    width: 50%;
+}
+
+.col-2 {
+    width: 50%;
+}
+
+md-chip-list {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+}
+
+.big-number {
+    font-size: 32px;
+    font-weight: 500;
 }

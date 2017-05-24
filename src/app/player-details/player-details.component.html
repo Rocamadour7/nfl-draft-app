@@ -4,8 +4,13 @@
     <md-card-title>{{ (player | async)?.firstName }} {{ (player | async)?.lastName }}</md-card-title>
     <md-card-subtitle><span class="college">{{ (player | async)?.college.name }}</span> <span class="conference">{{ (player | async)?.college.conference.name }}</span></md-card-subtitle>
   </md-card-header>
-  <img md-card-image-sm [src]="apiURL + (player | async)?.imgPath" [alt]="(player | async)?.firstName + ' ' + (player | async)?.lastName">
+  <img md-card-image-sm [src]="apiURL + (player | async)?.imgPath" [alt]="(player | async)?.firstName + ' ' + (player | async)?.lastName" *ngIf="!showLoading">
   <md-card-content>
+    <md-chip-list>
+      <md-chip selected> Round&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="big-number">{{ (player | async)?.teams[0].pivot.round }}</span> </md-chip>
+      <md-chip> Pick&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="big-number">{{ (player | async)?.teams[0].pivot.draftRound }}</span> </md-chip>
+      <md-chip> Overall&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="big-number">{{ (player | async)?.teams[0].pivot.draftOverall }}</span> </md-chip>
+    </md-chip-list>
     <md-list>
       <md-list-item>
         <span class="col-1">Position:</span>
@@ -15,21 +20,21 @@
         <span class="col-1">Team:</span>
         <span class="col-2">{{ (player | async)?.teams[0].name }}</span>
       </md-list-item>
-      <md-list-item>
+      <md-list-item *ngIf="(player | async)?.height != 0">
         <span class="col-1">Height:</span>
-        <span class="col-2">{{ (player | async)?.height }}"</span>
+        <span class="col-2">{{ (player | async)?.height | inchesToFeet }}</span>
       </md-list-item>
-      <md-list-item>
+      <md-list-item *ngIf="(player | async)?.weight != 0">
         <span class="col-1">Weight:</span>
         <span class="col-2">{{ (player | async)?.weight }} lb.</span>
       </md-list-item>
       <md-list-item *ngIf="(player | async)?.armLength != 0">
         <span class="col-1">Arms Length:</span>
-        <span class="col-2">{{ (player | async)?.armLength }}"</span>
+        <span class="col-2">{{ (player | async)?.armLength | decimalToFraction }}</span>
       </md-list-item>
       <md-list-item *ngIf="(player | async)?.hands != 0">
         <span class="col-1">Hands:</span>
-        <span class="col-2">{{ (player | async)?.hands }}"</span>
+        <span class="col-2">{{ (player | async)?.hands | decimalToFraction }}</span>
       </md-list-item>
     </md-list>
     <hr>

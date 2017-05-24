@@ -15,7 +15,7 @@
           <a md-list-item *ngFor="let player of players | async | orderBy:'lastName'; let i = index " [routerLink]="['/player', player.id]">
             <span class="col-1">{{ player.lastName }}, {{ player.firstName }}</span>
             <span class="col-2">{{ player.position.name }}</span>
-            <span class="col-3">{{ player.height }}</span>
+            <span class="col-3">{{ player.height | inchesToFeet }}</span>
             <span class="col-4">{{ player.weight }}</span>
             <span class="col-5">{{ player.college.name }}</span>
             <span class="col-6">Pick {{ player.teams[0].pivot.draftRound }}, Round {{ player.teams[0].pivot.round }} ({{ player.teams[0].pivot.draftOverall }})</span>
@@ -48,7 +48,7 @@
           <a md-list-item *ngFor="let player of players | async  | filter:'position_id':selectedPosition " [routerLink]="['/player', player.id]">
             <span class="col-1">{{ player.lastName }}, {{ player.firstName }}</span>
             <span class="col-2">{{ player.position.name }}</span>
-            <span class="col-3">{{ player.height }}</span>
+            <span class="col-3">{{ player.height | inchesToFeet }}</span>
             <span class="col-4">{{ player.weight }}</span>
             <span class="col-5">{{ player.college.name }}</span>
             <span class="col-6">Pick {{ player.teams[0].pivot.draftRound }}, Round {{ player.teams[0].pivot.round }} ({{ player.teams[0].pivot.draftOverall }})</span>
@@ -81,7 +81,7 @@
           <a md-list-item *ngFor="let player of players | async | orderBy:'lastName' | filter:'college_id':selectedCollege" [routerLink]="['/player', player.id]">
             <span class="col-1">{{ player.lastName }}, {{ player.firstName }}</span>
             <span class="col-2">{{ player.position.name }}</span>
-            <span class="col-3">{{ player.height }}</span>
+            <span class="col-3">{{ player.height | inchesToFeet }}</span>
             <span class="col-4">{{ player.weight }}</span>
             <span class="col-5">{{ player.college.name }}</span>
             <span class="col-6">Pick {{ player.teams[0].pivot.draftRound }}, Round {{ player.teams[0].pivot.round }} ({{ player.teams[0].pivot.draftOverall }})</span>

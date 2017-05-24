@@ -22,6 +22,8 @@ import { FilterRoundsPipe } from './shared/filter-rounds.pipe';
 import { LoadingComponent } from './ui/loading/loading.component';
 import { PlayerDetailsComponent } from './player-details/player-details.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { InchesToFeetPipe } from './shared/inches-to-feet.pipe';
+import { DecimalToFractionPipe } from './shared/decimal-to-fraction.pipe';
 
 @NgModule({
   declarations: [
@@ -36,6 +38,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     LoadingComponent,
     PlayerDetailsComponent,
     PageNotFoundComponent,
+    InchesToFeetPipe,
+    DecimalToFractionPipe,
   ],
   imports: [
     BrowserModule,
